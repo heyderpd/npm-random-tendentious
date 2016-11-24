@@ -71,7 +71,7 @@ const process = (f, limits) => {
 }
 
 const main = (config) => {
-  let fType = hasProp(config, 'f')
+  const fType = hasProp(config, 'f')
     ? (
       type(config.f) === 'function'
         ? 'function'
@@ -81,7 +81,9 @@ const main = (config) => {
             : undefined ) )
     : undefined
 
-  let limits = hasProp(config, 'l') && type(config.l) === 'array' && length(config.l) === 2
+  const f = config.f
+
+  const limits = hasProp(config, 'l') && type(config.l) === 'array' && length(config.l) === 2
     ? config.l
     : undefined
 

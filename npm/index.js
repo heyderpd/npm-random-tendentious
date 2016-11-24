@@ -71,6 +71,8 @@ var process = function process(f, limits) {
 var main = function main(config) {
   var fType = hasProp(config, 'f') ? type(config.f) === 'function' ? 'function' : type(config.f) === 'string' && hasProp(preFunction, config.f) ? 'string' : undefined : undefined;
 
+  var f = config.f;
+
   var limits = hasProp(config, 'l') && type(config.l) === 'array' && length(config.l) === 2 ? config.l : undefined;
 
   switch (fType) {
