@@ -17,7 +17,7 @@ Contact me by [github:heyderpd](https://github.com/heyderpd). I'll be glad to he
 
 Example:
 ```javascript
-tendentious = required('random-tendentious')
+tendentious = require('random-tendentious')
 
 const randomCos = tendentious({f: 'cos'})
 

@@ -69,9 +69,9 @@ var process = function process(f, limits) {
 };
 
 var main = function main(config) {
-  var fType = type(config.f) === 'function' ? 'function' : type(config.f) === 'string' && hasProp(preFunction, config.f) ? 'string' : undefined;
+  var fType = hasProp(config, 'f') ? type(config.f) === 'function' ? 'function' : type(config.f) === 'string' && hasProp(preFunction, config.f) ? 'string' : undefined : undefined;
 
-  var limits = hasProp(config, 'limits') && type(config.l) === 'array' && length(config.l) === 2 ? config.l : undefined;
+  var limits = hasProp(config, 'l') && type(config.l) === 'array' && length(config.l) === 2 ? config.l : undefined;
 
   switch (fType) {
     case 'string':
@@ -88,11 +88,9 @@ var main = function main(config) {
   }
 };
 
-var _require = require('pytils');
-
-var type = _require.type;
-var hasProp = _require.hasProp;
-var length = _require.length;
-
+var _require = require('pytils'),
+    type = _require.type,
+    hasProp = _require.hasProp,
+    length = _require.length;
 
 module.exports = main;

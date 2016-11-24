@@ -71,13 +71,17 @@ const process = (f, limits) => {
 }
 
 const main = (config) => {
-  let fType = type(config.f) === 'function'
-    ? 'function'
-    : ( type(config.f) === 'string' && hasProp(preFunction, config.f)
-          ? 'string'
-          : undefined )
+  let fType = hasProp(config, 'f')
+    ? (
+      type(config.f) === 'function'
+        ? 'function'
+        : (
+          type(config.f) === 'string' && hasProp(preFunction, config.f)
+            ? 'string'
+            : undefined ) )
+    : undefined
 
-  let limits = hasProp(config, 'limits') && type(config.l) === 'array' && length(config.l) === 2
+  let limits = hasProp(config, 'l') && type(config.l) === 'array' && length(config.l) === 2
     ? config.l
     : undefined
 
