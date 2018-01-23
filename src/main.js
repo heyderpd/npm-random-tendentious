@@ -51,7 +51,7 @@ const preFunction = {
 
 const getRandomLimits = (f, min, max) => {
   return () => {
-    return f(random()) * (max - min) + min;
+    return f(random() *(max -min) +min);
   }
 }
 

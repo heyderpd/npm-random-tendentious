@@ -52,7 +52,7 @@ var preFunction = {
 
 var getRandomLimits = function getRandomLimits(f, min, max) {
   return function () {
-    return f(random()) * (max - min) + min;
+    return f(random() * (max - min) + min);
   };
 };
 
